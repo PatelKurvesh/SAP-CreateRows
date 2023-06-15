@@ -4,12 +4,12 @@
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
+					<Input type="Number" placeholder="Please Enter Positive Number.." id="inp" value="{Json>/InputValue}" width="30%"></Input>
+					<Button class="sapUiMediumMargin" text="Create" icon="sap-icon://create-form" type="Emphasized" press="onCreate"></Button>
 					<VBox>
-						<Input type="Number" placeholder="Please Enter Positive Number.." id="inp" value="{Json>/InputValue}" width="50%"></Input>
-						<Button class="sapUiMediumMargin" text="Create" icon="sap-icon://create-form"  type="Emphasized" press="onCreate"></Button>
 						<Label id="lbl" design="Bold"></Label>
 						<html:hr></html:hr>
-						<Table width="60%" items="{Json>/Data}">
+						<Table width="60%" items="{Json>/Data}" id="oldTable"> 
 							<columns>
 								<Column>
 									<Text text="No"></Text>
@@ -29,18 +29,15 @@
 								</ColumnListItem>
 							</items>
 						</Table>
-						
 						<Button text="Save Data" type="Accept" icon="sap-icon://save" press="onSave"></Button>
 						<html:hr></html:hr>
-						
-						
-						<Table width="60%" items="{Json>/newData}">
+						<Table width="60%" items="{Json>/newData}" id="newTable">
 							<columns>
 								<Column>
-									<Text text="No"></Text>
+									<Label text="No"></Label>
 								</Column>
 								<Column>
-									<Text text="Name"></Text>
+									<Label text="Name"></Label>
 								</Column>
 							</columns>
 							<items>
@@ -54,6 +51,7 @@
 								</ColumnListItem>
 							</items>
 						</Table>
+						<!--<Button text="Download Excel" icon="sap-icon://excel-attachment" type="Accept" press="onExcelDownload"></Button>-->
 					</VBox>
 				</content>
 			</Page>
