@@ -37,6 +37,17 @@ sap.ui.define([
 			}
 		},
 		
+		onAdd:function(){
+			var oModel = this.getView().getModel("Json");
+			var oData = oModel.getProperty("/Data");
+			oData.push({
+				"No":null,
+				"Name":null
+			});
+			oModel.setProperty("/Data" , oData);
+			oModel.refresh(true);
+		},
+		
 		onSave : function(){
 			
 			var oModel = this.getView().getModel("Json");

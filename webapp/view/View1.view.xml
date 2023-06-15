@@ -9,6 +9,7 @@
 					<VBox>
 						<Label id="lbl" design="Bold"></Label>
 						<html:hr></html:hr>
+						<Button text="Add" icon="sap-icon://add" press="onAdd"></Button>
 						<Table width="60%" items="{Json>/Data}" id="oldTable"> 
 							<columns>
 								<Column>
