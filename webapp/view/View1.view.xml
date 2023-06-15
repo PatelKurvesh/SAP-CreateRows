@@ -3,7 +3,27 @@
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
-				<content></content>
+				<content>
+					<VBox>
+						<Input type="Number" placeholder="Please Enter Positive Number.." id="inp" value="oJson>/InputValue" width="50%"></Input>
+						<Button class="sapUiMediumMargin" text="Create" icon="sap-icon://create-form" width="20%"></Button>
+						<Label id="lbl" design="Bold" ></Label>
+						
+						<html:hr></html:hr>
+						
+						<Table width="60%">
+							<columns>
+								<Column>
+								
+									<Text text="No"></Text>
+								</Column>
+								<Column>
+									<Text text="Name"></Text>
+								</Column>
+							</columns>
+						</Table>
+					</VBox>
+				</content>
 			</Page>
 		</pages>
 	</App>
