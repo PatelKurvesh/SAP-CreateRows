@@ -1,64 +1,56 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/export/library",
-	"sap/ui/export/Spreadsheet"
-], function(Controller,JSONModel,exportLibrary,Spreadsheet) {
+	"sap/ui/model/json/JSONModel"
+	
+], function(Controller, JSONModel) {
 	"use strict";
-	
-	var EdmType = exportLibrary.EdmType;
-	
+
+
 	return Controller.extend("vsdSAP-CreateRows.controller.View1", {
-		
-	
-		
-		onInit : function(){
-			var oJson = new JSONModel({
-				Data : []
-			});
-			this.getView().setModel(oJson , "Json");
-		},
-		
-		onCreate : function(){
-			var oModel = this.getView().getModel("Json");
-			var oInput = oModel.getProperty("/InputValue");
-			if (oInput>0){
-				for (var i = 1 ; i <= oInput ; i++ ){
-					var oData = oModel.getProperty("/Data");
-					oData.push({
-						"No" : null,
-						"Name" : null
-					});
-					oModel.setProperty("/Data" , oData);
-					oModel.refresh(true);
-				}
-			}else{
-				this.getView().byId("lbl").setText("Please Enter Valid Positive Number");
-			}
-		},
-		
-		onAdd:function(){
-			var oModel = this.getView().getModel("Json");
-			var oData = oModel.getProperty("/Data");
-			oData.push({
-				"No":null,
-				"Name":null
-			});
-			oModel.setProperty("/Data" , oData);
-			oModel.refresh(true);
-		},
-		
-		onSave : function(){
+
+			onInit: function() {
+				var oJson = new JSONModel({
+					Data: []
+				});
 			
+				this.getView().setModel(oJson, "json");
+				this.oModel = this.getView().getModel("json");
+				this.aData = this.oModel.getProperty("/Data");
+			},
+
+			onCreate: function() {
+				var oInput = this.oModel.getProperty("/InputValue");
+				if (oInput > 0) {
+					for (var i = 1; i <= oInput; i++) {
+						this.onPush();
+					}
+				} else {
+					this.getView().byId("lbl").setText("Please Enter Valid Positive Number");
+				}
+			},
+
+			onPush: function() {
+				var oData = this.oModel.getProperty("/Data");
+				oData.push({
+					"No": null,
+					"Name": null
+				});
+				this.oModel.setProperty("/Data", oData);
+				this.oModel.refresh(true);
+			},
+
+		onAdd : function() {
+			this.onPush();
+		},
+
+		onSave: function() {
+
 			var oModel = this.getView().getModel("Json");
 			var oNewData = oModel.getProperty("/Data");
 			sap.m.MessageToast.show("Data is Store Successfully");
-			oModel.setProperty("/newData" , oNewData);
-			
-		}
-		
-	
+			oModel.setProperty("/newData", oNewData);
 
+		}
 
 	});
 });
