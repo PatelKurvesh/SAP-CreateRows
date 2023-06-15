@@ -13,8 +13,8 @@ sap.ui.define([
 					Data: []
 				});
 			
-				this.getView().setModel(oJson, "json");
-				this.oModel = this.getView().getModel("json");
+				this.getView().setModel(oJson, "Json");
+				this.oModel = this.getView().getModel("Json");
 				this.aData = this.oModel.getProperty("/Data");
 			},
 
@@ -45,10 +45,9 @@ sap.ui.define([
 
 		onSave: function() {
 
-			var oModel = this.getView().getModel("Json");
-			var oNewData = oModel.getProperty("/Data");
+			
 			sap.m.MessageToast.show("Data is Store Successfully");
-			oModel.setProperty("/newData", oNewData);
+			this.oModel.setProperty("/newData", this.aData);
 
 		}
 
