@@ -5,22 +5,54 @@
 			<Page title="{i18n>title}">
 				<content>
 					<VBox>
-						<Input type="Number" placeholder="Please Enter Positive Number.." id="inp" value="oJson>/InputValue" width="50%"></Input>
-						<Button class="sapUiMediumMargin" text="Create" icon="sap-icon://create-form" width="20%"></Button>
-						<Label id="lbl" design="Bold" ></Label>
-						
+						<Input type="Number" placeholder="Please Enter Positive Number.." id="inp" value="{Json>/InputValue}" width="50%"></Input>
+						<Button class="sapUiMediumMargin" text="Create" icon="sap-icon://create-form"  type="Emphasized" press="onCreate"></Button>
+						<Label id="lbl" design="Bold"></Label>
 						<html:hr></html:hr>
-						
-						<Table width="60%">
+						<Table width="60%" items="{Json>/Data}">
 							<columns>
 								<Column>
-								
 									<Text text="No"></Text>
 								</Column>
 								<Column>
 									<Text text="Name"></Text>
 								</Column>
 							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Input type="Number" value="{Json>No}"></Input>
+									</cells>
+									<cells>
+										<Input value="{Json>Name}"></Input>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						
+						<Button text="Save Data" type="Accept" icon="sap-icon://save" press="onSave"></Button>
+						<html:hr></html:hr>
+						
+						
+						<Table width="60%" items="{Json>/newData}">
+							<columns>
+								<Column>
+									<Text text="No"></Text>
+								</Column>
+								<Column>
+									<Text text="Name"></Text>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Input value="{Json>No}"></Input>
+									</cells>
+									<cells>
+										<Input value="{Json>Name}"></Input>
+									</cells>
+								</ColumnListItem>
+							</items>
 						</Table>
 					</VBox>
 				</content>
