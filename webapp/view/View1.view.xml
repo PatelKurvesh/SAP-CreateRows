@@ -17,6 +17,9 @@
 								<Column>
 									<Text text="Name"></Text>
 								</Column>
+								<Column>
+									<Text text=" "></Text>
+								</Column>
 							</columns>
 							<items>
 								<ColumnListItem>
@@ -25,6 +28,12 @@
 									</cells>
 									<cells>
 										<Input value="{Json>Name}"></Input>
+									</cells>
+									<cells>
+										<HBox class="hbox">
+										<Button icon="sap-icon://edit" type="Default"></Button>
+										<Button icon="sap-icon://delete" type="Reject"></Button>
+										</HBox>
 									</cells>
 								</ColumnListItem>
 							</items>

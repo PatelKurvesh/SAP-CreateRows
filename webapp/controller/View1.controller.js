@@ -38,11 +38,13 @@ sap.ui.define([
 		},
 		
 		onSave : function(){
-			sap.m.MessageToast.show("Data is Store Successfully");
+			
 			var oModel = this.getView().getModel("Json");
 			var oNewData = oModel.getProperty("/Data");
+			sap.m.MessageToast.show("Data is Store Successfully");
 			oModel.setProperty("/newData" , oNewData);
-		},
+			
+		}
 		
 	
 
